@@ -1,0 +1,500 @@
+train={}#traindictionary
+passenger={}#passengerdictionary
+ticket={}#ticketdictionary
+def submenu1():#function
+    def addtrain():#addfunction
+        checkerror="True"#errorcheck
+        choice="Yes"#intialization
+        while choice=="Yes":#loop
+                 while True:#loop
+                     try:#exceptionhandling
+                         key= eval(input("Enter the id of the train: "))#input
+                         break#break
+                     except:#except
+                         print("Enter numbers only")#output
+                 while key in train.keys():#check
+                             print("It already taken")#output
+                             while True:#loop
+                                 try:#exceptionhandling
+                                     key= eval(input("Enter the id of the train: "))#input
+                                     break#break
+                                 except:#except
+                                     print("Enter numbers only")#output
+                 while True:#loop
+                     Name= input("Enter the name of train")#input
+                     if Name.isalpha()==True:#error checker
+                         break#break
+                     else:#except
+                         print("Enter alphabets only")#output
+                 while True:#loop
+                     try:#exceptionhandling
+                         Seat=eval(input("Enter the number of seats"))#input
+                         break#break
+                     except:#except
+                         print("Enter numbers only")#output
+                 while True:#loozp
+                     try:#exceptionhandling
+                         Price= eval(input("Enter the price : "))#input
+                         break#break
+                     except:#except
+                         print("Enter numbers only")#output
+                 while True:#loop
+                     Source= input("Enter the source of train: ")#input
+                     if Source.isalpha()==True:#error checker
+                         break#break
+                     else:#except
+                         print("Enter alphabets only")#output
+                 while True:#loop
+                     Destination= input("Enter the Destination of train: ")#input
+                     if Destination.isalpha()==True:#error checker
+                         break#break
+                     else:#except
+                         print("Enter alphabets only")#output
+                 train1=[Name,Seat,Price,Source,Destination]#value assigning
+                 while train1 in train.values():#check
+                     print("It is already avaliable")#output
+                     while True:#loop
+                         try:#exceptionhandling
+                             key= eval(input("Enter the id of the train: "))#input
+                             break#break
+                         except:#except
+                             print("Enter numbers only")#output
+                         while True:#loop
+                             Name= input("Enter the name of train")#input
+                             if Name.isalpha()==True:#error handling
+                                 break#break
+                             else:#except
+                                 print("Enter alphabets only")#output
+                         while True:#loop
+                             try:#exceptionhandling
+                                 Seat=eval(input("Enter the number of seats"))#input
+                                 break#break
+                             except:#except
+                                 print("Enter numbers only")#output
+                         while True:#loop
+                             try:#exceptionhandling
+                                 Price= eval(input("Enter the price : "))#input
+                                 break#break
+                             except:#except
+                                 print("Enter numbers only")#output
+                         while True:#loop
+                             Source= input("Enter the source of train: ")#input
+                             if Source.isalpha()==True:#error handling
+                                 break#break
+                             else:#except
+                                 print("Enter alphabets only")#output
+                         while True:#loop
+                             Destination= input("Enter the Destination of train: ")#input
+                             if Destination.isalpha()==True:#error handling
+                                 break#break
+                             else:#except
+                                 print("Enter alphabets only")#output
+                         train1=[Name,Seat,Price,Source,Destination]#value assigning
+                 train[key]=train1#value assigning
+                 choice=input("Enter Yes to continue")#input
+    def viewtrain():#trainfunction
+            for i in train.keys():#loop
+                quantity=train[i]#value assigning
+                print("key",i,"Name",quantity[0],"Seat",quantity[1],"Price",quantity[2],"Source",quantity[3],"Destination",quantity[4])#Output
+    def edittrain():#editfunction
+            while True:#loop
+                try:#exception handling
+                    edit=eval(input("Enter the key to edit: "))#input
+                    break#break
+                except:#exception
+                    print("Enter number only")#output
+            if edit in train:#check
+                while True:#loop
+                     try:#exceptionhandling
+                         editing=eval(input("Enter 1)Name 2)Seat 3)Price 4)Source 5)Destination 6)Exit(Menu)"))#input
+                         break#break
+                     except:#except
+                         print("Enter numbers only")#output
+                while editing!=6:#loop
+                    if editing>=1 and editing<6:#check
+                        if editing==1:#choice1
+                            while True:#check
+                                train[edit][0]=input("Enter the name")#input
+                                if train[edit][0].isalpha()==True:#check error
+                                    break#break
+                                else:
+                                    print("Enter the alphabet")
+                        elif editing==2:#choice2
+                            while True:#loop
+                                 try:#exceptionhandling
+                                     train[edit][1]=eval(input("Enter the seat"))#input
+                                     break#break
+                                 except:#except
+                                     print("Enter numbers only")#output
+                        elif editing==3:#choice3
+                            while True:#loop
+                                try:#exceptionhandling
+                                     train[edit][2]=eval(input("Enter the Price"))#input#input
+                                     break#break
+                                except:#except
+                                     print("Enter numbers only")#output  
+                        elif editing==4:#choice4
+                            while True:
+                                train[edit][3]=input("Enter the Source")#input
+                                if train[edit][3].isalpha()==True:
+                                    break
+                                else:
+                                    print("Enter number only")
+                        elif editing==5:#choice5
+                            while True:
+                                train[edit][4]=input("Enter the Destination")#input
+                                if train[edit][4].isalpha()==True:
+                                    break
+                                else:
+                                    print("Enter number only")
+                    else:#else
+                        print("Invalid input")#Output
+                    while True:#loop
+                         try:#exceptionhandling
+                             editing=eval(input("Enter 1)Name 2)Seat 3)Price 4)Source 5)Destination 6)Exit(Menu)"))#input
+                             break#break
+                         except:#except
+                             print("Enter numbers only")#output
+            else:#else
+                    print("It is not avaliable")#output
+    def deletetrain():#deletefunction
+             while True:#loop
+                     try:#exceptionhandling
+                         delete=eval(input("Enter the key of the train: "))#input
+                         break#break
+                     except:#except
+                         print("Enter numbers only")#output
+             lst=list(train.keys())#value assigning
+             for i in range(len(lst)):#loop
+                if lst[i]==delete:#check
+                    del train[delete]#delete
+    def searchtrain():#searchfunction
+            while True:#loop
+                     try:#exceptionhandling
+                         search=eval(input("Enter the train to search"))#input
+                         break#break
+                     except:#except
+                         print("Enter numbers only")#output
+            for k,value in train.items():#loop
+                if search == k:#check
+                    print("key",k,"Name",value[0],"Seat",value[1],"Price",value[2],"Source",value[3],"Destination",value[4])#Output
+    def exit1():#exitfunction
+        print("")#Output
+    choices=0#intialization
+    while choices!=6:
+        while True:#loop
+            try:#exceptionhandling
+                choices=eval(input("Enter the choice1.Add Train 2.View Train 3.Edit train 4.Delete Train 5.Search train 6.Menu"))#input
+                break#break
+            except:#except
+                print("Enter digit only")#Output
+        if choices==1:#choice1
+            addtrain()#function call
+            checkerror=False
+        elif choices==2:#choice2
+            viewtrain()#function call
+            checkerror=False
+        elif choices==3:#choice3
+            edittrain()#function call
+            checkerror=False
+        elif choices==4:#choice4
+            deletetrain()#function call
+            checkerror=False
+        elif choices==5:#choice5
+            searchtrain()#function call
+            checkerror=False
+        elif choices==6:#choice6
+            exit1()#function call
+        else:#else
+            print("invalid input")#Output
+def submenu2():#function
+    checkerror=True#errorcheck
+    def addpassenger():#addpasssenger function
+       checkerror="True"
+       choice="Yes"#intialization
+       while choice=="Yes":#loop
+             while True:#check
+               try:#exceptionhandling
+                   key= eval(input("Enter the id of the passenger: "))#input
+                   break#break
+               except:#except
+                    print("Enter the number only")
+             while True:#loop
+                 Name= input("Enter the name of passenger:")#input
+                 if Name.isalpha()==True:#error checker
+                     break#break
+                 else:#except
+                     print("Enter alphabets only")#Output
+             while True:#loop
+                 try:#exceptionhandling
+                     Age=eval(input("Enter the age of passenger "))#input
+                     break#break
+                 except:#except
+                     print("Enter number only")#Output
+             while True:#loop
+                 try:#exceptionhandling
+                     CNIC=eval(input("Enter the CNIC of passenger"))#input
+                     break#break
+                 except:#except
+                     print("Enter number only")#Output
+             while True:#loop
+                 try:#exceptionhandling
+                     Mobileno=eval(input("Enter the mobile no of passenger "))#input
+                     break#break
+                 except:#except
+                     print("Enter number only")#Output
+             passenger1=[Name,Age,CNIC,Mobileno]#value assigning
+             while passenger1 in passenger.values():#check
+                 print("It is already present")#output
+                 while True:#loop
+                   try:#exceptionhandling
+                       key= eval(input("Enter the id of the passenger: "))#input
+                       break#break
+                   except:#exception
+                        print("Enter the number only")#output
+                 while True:#loop
+                     Name= input("Enter the name of passenger:")#input
+                     if Name.isalpha()==True:#error check
+                         break#break
+                     else:#except
+                         print("Enter alphabets only")#Output
+                 while True:#loop
+                     try:#exceptionhandling
+                         Age=eval(input("Enter the age of passenger "))#input
+                         break#break
+                     except:#except
+                         print("Enter number only")#Output
+                 while True:#loop
+                     try:#exceptionhandling
+                         CNIC=eval(input("Enter the CNIC of passenger"))#input
+                         break#break
+                     except:#except
+                         print("Enter number only")#Output
+                 while True:#loop
+                     try:#exceptionhandling
+                         Mobileno=eval(input("Enter the mobile no of passenger "))#input
+                         break#break
+                     except:#except
+                         print("Enter number only")#Output
+                 passenger1=[Name,Age,CNIC,Mobileno]#value assigning
+             passenger[key]=passenger1#value assigning
+             choice=input("Enter Yes to continue")#input
+    def viewpassenger():#view passsenger function
+            for i in passenger.keys():#loop
+                quantity=passenger[i]#value assigning
+                print("Key",i,"Name",quantity[0],"Age",quantity[1],"CNIC",quantity[2],"Mobileno",quantity[3])#Output
+    def editpassenger():#edit passenger function
+            while True:#loop
+                try:#exceptionhandling
+                    edit=eval(input("Enter the key to edit: "))#input
+                    break#break
+                except:#exception
+                    print("Enter number only")#output
+            if edit in passenger:#check
+                while True:#loop
+                     try:#exceptionhandling
+                         editing=eval(input("Enter 1)Name 2)Age 3)CNIC 4)Mobile No  5)Exit(Menu)"))#input
+                         break#break
+                     except:#except
+                         print("Enter numbers only")#output
+                while editing!=5:#loop
+                    if editing>=1 and editing<5:#check
+                        if editing==1:#choice1
+                            passenger[edit][0]=input("Enter the name")#input
+                            if passenger[edit][0].isalpha()==True:#error checker
+                                break#break
+                            else:#else
+                                print("Enter alphabet only")#output
+                        elif editing==2:#choice2
+                            while True:#loop
+                                 try:#exceptionhandling
+                                     passenger[edit][1]= eval(input("Enter the age of passenger: "))#input
+                                     break#break
+                                 except:#except
+                                     print("Enter numbers only")#output
+                        elif editing==3:#choice3
+                            while True:#loop
+                                 try:#exceptionhandling
+                                     passenger[edit][2]=input("Enter the CNIC")#input
+                                     break#break
+                                 except:#except
+                                     print("Enter numbers only")#output
+                        elif editing==4:#choice4
+                            while True:#loop
+                                 try:#exceptionhandling
+                                     passenger[edit][3]=input("Enter the Mobileno")#input
+                                     break#break
+                                 except:#except
+                                     print("Enter numbers only")#output
+                    else:#else
+                        print("Invalid input")#Output
+                    while True:#loop
+                     try:#exceptionhandling
+                         editing=eval(input("Enter 1)Name 2)Age 3)CNIC 4)Mobile No  5)Exit(Menu)"))#input
+                         break#break
+                     except:#except
+                         print("Enter numbers only")#output
+            else:#else
+                print("It is not avaliable")#Output
+    def deletepassenger():#delete passenger function
+        if checkerror==False:#error check
+            while True:#loop
+                try:#exceptionhandling
+                    delete=eval(input("Enter the key of the passenger:"))#input
+                    break#break
+                except:#exception
+                    print("Enter the number only")#output
+            lst=list(passenger.keys())#value assiging
+            for i in range(len(lst)):#loop
+                if lst[i]==delete:#check
+                    del passenger[delete]#delete
+        else:#else
+            print("Add record first")#output
+    def searchpassenger():#search passenger function
+            while True:#loop
+                try:#exceptionhandling
+                    search=eval(input("Enter the key of passenger to search"))#input
+                    break#break
+                except:#exception
+                    print("Enter the number only")#output
+            for k,value in passenger.items():#loop
+                    if search == k:#check
+                        print("Key",k,"Name",value[0],"age",value[1],"CNIC",value[2],"Mobile No",value[3])
+    def exit2():#exit function
+        print("")#Output
+    choices=0#initialization
+    while choices!=6:#loop
+        while True:#loop
+            try:#exceptionhandling
+                choices=eval(input("Enter the choice 1.Add Passenger 2.View Passenger 3.Edit Passenger 4.Delete Passenger 5.Search Passenger 6.Menu"))#input
+                break#break
+            except:#except
+                print("Enter digit only")#Output
+        if choices==1:#choice1
+            addpassenger()#function call
+            checkerror=False
+        elif choices==2:#choice2
+            viewpassenger()#function call
+            checkerror=False
+        elif choices==3:#choice3
+            editpassenger()#function call
+            checkerror=False
+        elif choices==4:#choice4
+            deletepassenger()#function call
+            checkerror=False
+        elif choices==5:#choice5
+            searchpassenger()#function call
+            checkerror=False
+        elif choices==6:#choice6
+            exit2()#function call
+        else:#else
+            print("invalid input")#Output
+def submenu3():#function
+    def addticket():#add ticket function
+        checkerror="True"
+        while True:#loop
+            while True:#loop
+                try:#exceptionhandling
+                    ticketid1=eval(input("Enter the id of ticket"))#input
+                    break#break
+                except:#exception
+                    print("Enter the number only")#output
+            while True:#loop
+                if ticketid1 in ticket:#check
+                    print("Already use")#Output
+                    while True:#loop
+                        try:#exceptionhandling
+                            ticketid1=eval(input("Enter the id of ticket"))#input
+                            break#break
+                        except:#exception
+                            print("Enter number only")#output
+                else:#else
+                    ticketid=ticketid1#value assigning
+                    break#break
+            while True:#loop
+                try:#exceptionhandling
+                    trainid1=eval(input("Enter the id of train"))#input
+                    break#break
+                except:#exception
+                    print("Enter number only")#Output
+            if trainid1 in train:#check
+                trainid=trainid1#value assigning
+            else:#else
+                print("Invalid")#Output
+                break#break
+            while True:#loop
+                try:#exceptionhandling
+                    passengerid1=eval(input("Enter the id of passenger"))#input
+                    break#break
+                except:#exception
+                    print("Enter number only")#output
+            if passengerid1 in passenger:#check
+                passengerid=passengerid1#value assigning
+            else:#else
+                print("Invalid")#Output
+                break#break
+            while True:#loop
+                try:#exceptionhandling
+                    ticketvalue=eval(input("Enter the number of tickets"))#input
+                    break#break
+                except:#exception
+                    print("Enter number only")#output
+            if ticketvalue <= train[trainid][1]:#check
+                train[trainid][1]=int(train[trainid][1])-int(ticketvalue)#value assigning
+                ticket1=ticketvalue#value assigning
+            else:#else
+                print("Sorry, ticket are short")#Output
+                break#break
+            price = int(ticket1)*int(train[trainid][2])#value assigning
+            ticket[ticketid]=[trainid,passengerid,price,ticket1]#value assigning
+            control = input("Press \"Y\" to continue Adding or \"N\" To Stop.") #it controls the flow of loop
+            if control == "N" or control == "n": #check
+                break #break 
+    def viewticket():#view ticket function
+            for i in ticket.keys():#loop
+                value=ticket[i]#value assigning
+                print("Ticket id","Train id","Train source","passenger id","passenger name","CNIC","Ticket Price","Ticket\n",i,"\t\t",value[0],"\t\t",train[value[0]][3],"\t\t",value[1],"\t\t",passenger[value[1]][0],"\t\t",passenger[value[1]][2],value[2],"\t\t",value[3])#Output
+    def exit3():#exit function
+        print("")#Output
+    choices=0#intialization
+    while choices!=3:#loop
+        while True:#loop
+            try:#exception handling
+                choices=eval(input("Enter the choice 1.Add ticket 2.View ticket 3.Menu"))#input
+                break#break
+            except:#except
+                print("Enter digit only")#Output
+        if choices==1:#choice1
+            addticket()#function call
+            checkerror=False#error
+        elif choices==2:#choice2
+            viewticket()#function call
+            checkerror=False
+        elif choices==3:#choice3
+            exit3()#function call
+        else:#else
+            print("invalid input")#Output
+
+    
+
+choice=0#initialization
+while choice!=4:#loop
+    while True:#loop
+        try:#exceptionhandling
+            choice=eval(input("Enter the choice 1.Train 2.Passenger 3.Ticket 4.Exit "))#input
+            break#break
+        except:#exception
+           print("Enter digit only")#Output
+    
+    if choice==1:#choice1
+        submenu1()#function call         
+    elif choice==2:#choice2
+        submenu2()#function call
+    elif choice==3:#choice3
+        submenu3()#function call
+    elif choice==4:#choice4
+        print("Program terminated Thanks for running")#Output
+    else:#else
+        print("Invalid input")#Output
+
+
